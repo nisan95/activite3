@@ -124,8 +124,8 @@ flutter run
 
 ## 📸 Aperçu
 
-La video ci-dessus montre l’interface principale de l’application, mettant en avant le design épuré et la présentation des contenus.
-[Voir la vidéo](assets/images/activite3.mp4)
+L'image ci-dessus montre l’interface principale de l’application, mettant en avant le design épuré et la présentation des contenus.
+![Aperçu de l'application](assets/images/imageActivite3.png)
 ---
 
 ## 👨‍💻 Auteur
