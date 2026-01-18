@@ -1,70 +1,137 @@
-# 📱 Magazine Infos
 
-![Aperçu de l'application](app.png)
+# 📱 Gestion des redacteurs — Flutter & SQLite
 
-## 📰 Description
+## 📌 Description
 
-**Magazine Infos** est une application mobile développée avec **Flutter**. Elle propose une interface moderne et intuitive permettant aux utilisateurs de consulter des articles, des actualités et du contenu inspirant dans différents domaines tels que la culture, la science, l'économie et le divertissement.
+Ce projet est une application **Flutter** permettant de gérer une liste de redacteurs (CRUD) avec les fonctionnalités suivantes :
 
-L'application met l'accent sur une présentation claire, une navigation fluide et une expérience utilisateur agréable.
+* ➕ Ajouter un redacteur
+* ✏️ Modifier un redacteur
+* 🗑️ Supprimer un redacteur avec **boîte de confirmation**
+* 📋 Afficher la liste via `ListView.builder`
+* 💾 Persistance des données avec **SQLite (sqflite)**
+
+L’application illustre les bonnes pratiques Flutter :
+
+* `StatefulWidget`
+* séparation des responsabilités
+* gestion de l’état avec `setState`
+* interaction UI ↔ base de données
 
 ---
 
-## ✨ Fonctionnalités principales
-
-* 📖 Page d’accueil avec présentation du magazine
-* 🖼️ Bannière visuelle attractive
-* 📰 Affichage de contenus sous forme de cartes
-* ☎️ Boutons d’actions rapides : Téléphone, Email, Partage
-* 🎨 Interface responsive et design moderne
-
----
-
-## 🛠️ Technologies utilisées
+## 🧱 Technologies utilisées
 
 * **Flutter**
 * **Dart**
+* **sqflite**
+* **path**
 * **Material Design**
+
 
 ---
 
-## 📂 Structure du projet (exemple)
+## 👤 Modèle : Redacteur
 
+```dart
+class Redacteur {
+  int? id;
+  String nom;
+  String prenom;
+  String email;
 
-## 🚀 Installation et exécution
+  Redacteur({
+    required this.id,
+    required this.nom,
+    required this.prenom,
+    required this.email,
+  });
 
-1. Cloner le projet :
-
-```bash
-git clone https://github.com/nisan95/activite2.git
+  Redacteur.sansId({
+    required this.nom,
+    required this.prenom,
+    required this.email,
+  });
+}
 ```
 
-2. Installer les dépendances :
+---
+
+## 🗄️ Base de données (SQLite)
+
+* Base locale avec **sqflite**
+* Table `redacteurs`
+* Opérations :
+
+  * `initialisation`
+  * `getAllRedacteurs`
+  * `insertRedacteur`
+  * `updateRedacteur`
+  * `deleteRedacteur`
+---
+
+## 🖥️ Fonctionnalités UI
+
+### 📋 Liste des redacteurs
+
+* `ListView.builder`
+* Icônes :
+
+  * ✏️ Modifier
+  * 🗑️ Supprimer
+
+### ⚠️ Confirmation de suppression
+
+* `showDialog`
+* `AlertDialog`
+* Boutons **Annuler / Supprimer**
+
+---
+
+## ▶️ Lancer le projet
+
+### 1️⃣ Installer les dépendances
 
 ```bash
 flutter pub get
 ```
 
-3. Lancer l’application :
+### 2️⃣ Lancer l’application
 
 ```bash
 flutter run
 ```
 
+## 🎯 Objectifs pédagogiques
+
+* Comprendre le fonctionnement des **StatefulWidget**
+* Maîtriser la **transmission d’objets par référence**
+* Relier Flutter à une **base de données locale**
+* Implémenter un CRUD complet
+* Structurer proprement un projet Flutter
+
+---
+
+## 🚀 Améliorations possibles
+
+* 🔍 Recherche de personnes
+* 📊 Tri (nom, prénom)
+* ✅ Validation des champs
+* 🎨 Amélioration UI
+* 🔄 State management (Provider / Bloc)
+
 ---
 
 ## 📸 Aperçu
 
-L’image ci-dessus montre l’interface principale de l’application **Magazine Infos**, mettant en avant le design épuré et la présentation des contenus.
-![Aperçu de l'application](assets/images/app.png)
+La video ci-dessus montre l’interface principale de l’application, mettant en avant le design épuré et la présentation des contenus.
+![Aperçu de l'application](assets/images/activite3.mp4)
 
 ---
 
 ## 👨‍💻 Auteur
 
-Développé par **Sanora Nigtherson**
-
----
+Projet réalisé dans un but **pédagogique** pour l’apprentissage de Flutter, Dart et SQLite.
 
 ## 📄 Licence
 
